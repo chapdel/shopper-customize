@@ -1,5 +1,5 @@
 {
-  "name": "shopper/framework",
+  "name": "chapdel/shopper-framework",
   "description": "An eCommerce administration built with Laravel for create and manage online shop.",
   "keywords": [
     "laravel",
@@ -14,6 +14,12 @@
       "name": "Arthur Monney",
       "email": "monneylobe@gmail.com",
       "homepage": "https://twitter.com/MonneyArthur",
+      "role": "Developer"
+    },
+    {
+      "name": "Chapdel KAMGA",
+      "email": "chapdel.kamga2@gmail.com",
+      "homepage": "https://twitter.com/iamchapdel",
       "role": "Developer"
     }
   ],
