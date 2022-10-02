@@ -100,7 +100,7 @@ class Create extends AbstractBaseComponent
 
         if (collect($this->files)->isNotEmpty()) {
             collect($this->files)->each(
-                fn ($file) => $product->addMedia($file)->toMediaCollection(config('shopper.system.storage.disks.uploads'))
+                fn ($file) => $product->addMediaFromDisk($file, config('filesystems.default'))->toMediaCollection(config('shopper.system.storage.disks.uploads'), config('filesystems.default'))
             );
         }
 

@@ -83,8 +83,7 @@ class Variant extends Component
 
         if (collect($this->files)->isNotEmpty()) {
             collect($this->files)->each(
-                fn ($file) => $this->variant->addMedia($file->getRealPath())
-                    ->toMediaCollection(config('shopper.system.storage.disks.uploads'))
+                fn ($file) => $this->variant->addMediaFromDisk($file->getRealPath(), config('filesystems.default'))->toMediaCollection(config('shopper.system.storage.disks.uploads'), config('filesystems.default'))
             );
         }
 

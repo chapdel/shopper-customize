@@ -89,7 +89,7 @@ class Edit extends AbstractBaseComponent
         ]);
 
         if ($this->fileUrl) {
-            $this->collection->addMedia($this->fileUrl)->toMediaCollection(config('shopper.system.storage.disks.uploads'));
+            $this->collection->addMediaFromDisk($this->fileUrl, config('filesystems.default'))->toMediaCollection(config('shopper.system.storage.disks.uploads'), config('filesystems.default'));
         }
 
         session()->flash('success', __('Collection successfully updated!'));

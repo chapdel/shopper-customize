@@ -56,7 +56,7 @@ class Create extends AbstractBaseComponent
         ]);
 
         if ($this->fileUrl) {
-            $brand->addMedia($this->fileUrl)->toMediaCollection(config('shopper.system.storage.disks.uploads'));
+            $brand->addMediaFromDisk($this->fileUrl, config('filesystems.default'))->toMediaCollection(config('shopper.system.storage.disks.uploads'), config('filesystems.default'));
         }
 
         session()->flash('success', __('Brand successfully added!'));

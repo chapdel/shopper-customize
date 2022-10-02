@@ -78,7 +78,7 @@ class Edit extends AbstractBaseComponent
         ]);
 
         if ($this->fileUrl) {
-            $this->brand->addMedia($this->fileUrl)->toMediaCollection(config('shopper.system.storage.disks.uploads'));
+            $this->brand->addMediaFromDisk($this->fileUrl, config('filesystems.default'))->toMediaCollection(config('shopper.system.storage.disks.uploads'), config('filesystems.default'));
         }
 
         session()->flash('success', __('Brand successfully updated!'));

@@ -72,7 +72,7 @@ class Create extends Component
         ]);
 
         if ($this->fileUrl) {
-            $collection->addMedia($this->fileUrl)->toMediaCollection(config('shopper.system.storage.disks.uploads'));
+            $collection->addMediaFromDisk($this->fileUrl, config('filesystems.default'))->toMediaCollection(config('shopper.system.storage.disks.uploads'), config('filesystems.default'));
         }
 
         if ($this->type === 'auto' && count($this->conditions) > 0 && $this->rule) {
