@@ -114,14 +114,12 @@ class Product extends Model implements HasMedia, ReviewRateable
 
     public function getPriceAttribute(): ?Price
     {
-        if (!$this->price_amount) {
+        if (! $this->price_amount) {
             return null;
         }
 
         return Price::from($this->price_amount);
     }
-
-
 
     /**
      * Get the stock of all variations.

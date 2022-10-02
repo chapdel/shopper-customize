@@ -90,7 +90,7 @@ class Collection extends Model implements HasMedia
 
     public function isManual(): bool
     {
-        return !$this->isAutomatic();
+        return ! $this->isAutomatic();
     }
 
     /**
