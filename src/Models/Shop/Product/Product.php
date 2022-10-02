@@ -81,6 +81,13 @@ class Product extends Model implements HasMedia, ReviewRateable
         'published_at' => 'datetime',
     ];
 
+    protected $appends = ['img_src'];
+
+    public function getImgSrcAttribute()
+    {
+        return $this->getFirstMediaUrl(config('filesystems.default'));
+    }
+
     /**
      * Get the table associated with the model.
      */
@@ -101,18 +108,20 @@ class Product extends Model implements HasMedia, ReviewRateable
         }
 
         return $this->price_amount
-                ? $this->formattedPrice($this->price_amount)
-                : null;
+            ? $this->formattedPrice($this->price_amount)
+            : null;
     }
 
     public function getPriceAttribute(): ?Price
     {
-        if (! $this->price_amount) {
+        if (!$this->price_amount) {
             return null;
         }
 
         return Price::from($this->price_amount);
     }
+
+
 
     /**
      * Get the stock of all variations.

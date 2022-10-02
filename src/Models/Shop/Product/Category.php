@@ -45,6 +45,13 @@ class Category extends Model implements HasMedia
         'is_enabled' => 'boolean',
     ];
 
+    protected $appends = ['img_src'];
+
+    public function getImgSrcAttribute()
+    {
+        return $this->getFirstMediaUrl(config('filesystems.default'));
+    }
+
     /**
      * Get the table associated with the model.
      */

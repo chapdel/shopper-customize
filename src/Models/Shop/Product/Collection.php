@@ -45,6 +45,13 @@ class Collection extends Model implements HasMedia
         'published_at' => 'datetime',
     ];
 
+    protected $appends = ['img_src'];
+
+    public function getImgSrcAttribute()
+    {
+        return $this->getFirstMediaUrl(config('filesystems.default'));
+    }
+
     /**
      * Get the table associated with the model.
      */
@@ -83,7 +90,7 @@ class Collection extends Model implements HasMedia
 
     public function isManual(): bool
     {
-        return ! $this->isAutomatic();
+        return !$this->isAutomatic();
     }
 
     /**
